@@ -33,6 +33,7 @@ define(["processing", "./particles/particleSystem", "./particles/flower", "./par
             // myJQuerySelector.get(0) will return the canvas element to pass to processing
             var canvas = $("#processingCanvas");
 			$('#instructions').prepend('<h1>Art Critic</h1> <p>this is a place holder for instructions</p>');
+			$('#critic').prepend('<h1>The art critic "tracery for how he says something":</h1><p>blah blah blah tracery making it long enought to test to see if it handles two lines correctly so blah woo foo bar bazz boom pow wow keep testing 3 lines .................... waste space</p>');
             var processingInstance = new Processing(canvas.get(0), function(g) {
                 app.particles = [];
                 // This function is called once processing is initialized.
@@ -53,8 +54,14 @@ define(["processing", "./particles/particleSystem", "./particles/flower", "./par
                 g.ellipseMode(g.CENTER_RADIUS);
 
                 g.background(360, 0, 100);
+				var hue = 0;
+				var sat =0;
+				var bright = 0;
+				var size = 10;
+				
 
                 g.draw = function() {
+				g.background(360, 0, 100);
 
                     // Update time
                     time.updateTime();
@@ -67,17 +74,21 @@ define(["processing", "./particles/particleSystem", "./particles/flower", "./par
                     g.translate(w / 2, h / 2);
 
                     // [TODO] Draw a particle here
-                    //     myParticle.draw(g);
+					g.stroke(hue,sat,bright);
+					g.fill(0,0,0,0);
+                    g.ellipse(app.mouse.x, app.mouse.y, size,size);
 
                     g.popMatrix();
 
                     // HW Functions
 
-                    if (app.key === 1) {
-                        //randomDot(g);
+                    if (app.key === 9) {
+						console.log("--size");
+                        size--;
                     }
-                    if (app.key === 2) {
-                        //pixelStreak(g);
+                    if (app.key === 0) {
+                        console.log("++size");
+						size++;
                     }
 
                 };
@@ -119,14 +130,13 @@ define(["processing", "./particles/particleSystem", "./particles/flower", "./par
                     case ' ':
                         app.paused = !app.paused;
                         break;
-                    case '1':
-                        // Do something 
-                        app.key = 1;
+                    case "9":
+                        app.key = 9;
                         break;
 
-                    case '2':
+                    case '0':
                         // Do something
-                        app.key = 2;
+                        app.key = 0;
                         break;
 						
                     case '3':

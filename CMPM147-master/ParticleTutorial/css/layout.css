@@ -16,29 +16,53 @@
 	top: 0px;
 	left: 0px;
 	width: 800px;
-	height: 704px;
+	height: 810px;
 	margin: 20px auto;
 	border: solid rgba(255, 255, 255, .3) 5px;
 	box-shadow: 0px 7px 28px rgba(0, 0, 0, .7);
 }
 
 #instructions{
-	width: 796px;
+	width: 800px;
 	height: 100px;
 	margin: 0 auto 0 auto;
-	border: 2px solid black;
+	border-bottom: 2px solid black;
 	background-color: lightgrey;
 }
 
-h1{
+#instructions h1{
 	font-size: 30px;
 	text-align: center;
-	margin: 2px auto 2px auto;
+	margin: 0px auto 2px auto;
 }
 
-p{
+#instructions p{
 	font-weight: bold;
-	font-size: 15px;
+	font-size: 18px;
+	text-align: center;
+	margin: auto;
+}
+
+#critic{
+	width: 800px;
+	height: 106px;
+	margin: 0 auto 0 auto;
+	border-top: 2px solid black;
+	background-color: lightgrey;
+}
+
+#critic h1{
+	font-weight: bold;
+	font-size: 26px;
+	text-align: center;
+	margin-top: 4px;
+	margin-bottom: 6px;
+}
+
+#critic p{
+	font-size: 18px;
+	text-align: center;
+	margin: 4px 100px 8px 100px;
 }
 
 #view {
