@@ -39,7 +39,7 @@ require.config({
 });
 
 require(["./app"], function(_app) {
-    console.log("Start");
+    console.log("Whaever");
 
     app.init();
 

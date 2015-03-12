@@ -38,7 +38,6 @@ require.config({
 });
 
 require(["./app"], function(_app) {
-    console.log("Start");
 
     app.init();
 
