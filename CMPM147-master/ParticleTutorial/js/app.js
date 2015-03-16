@@ -1,4 +1,8 @@
 var app = {};
+var hue = 0;
+var sat =0;
+var bright = 0;
+var size = 10;
 
 // A holder for lots of app-related functionality
 define(["processing", "./particles/particleSystem", "./particles/particle", "./tracery/tracery"], function(_processing, ParticleSystem, Particle, _tracery) {'use strict';
@@ -18,7 +22,6 @@ define(["processing", "./particles/particleSystem", "./particles/particle", "./t
             this.frames++;
         }
     };
-	
 
     // Lets add some functions to the app object!
     $.extend(app, {
@@ -28,6 +31,12 @@ define(["processing", "./particles/particleSystem", "./particles/particle", "./t
 
         init : function() {
 
+			app.particles = [];
+			
+			var p = new Particle_1();
+			
+			app.particles.push(p);
+			
             // Get the canvas element
             // Note that this is the jquery selector, and not the DOM element (which we need)
             // myJQuerySelector.get(0) will return the canvas element to pass to processing
@@ -58,25 +67,20 @@ define(["processing", "./particles/particleSystem", "./particles/particle", "./t
                 g.ellipseMode(g.CENTER_RADIUS);
 
                 g.background(360, 0, 100);
-				var hue = 0;
-				var sat =0;
-				var bright = 0;
-				var size = 10;
 				
 
                 g.draw = function() {
-				g.background(360, 0, 100);
 
                     // Update time
                     time.updateTime();
 
                     // [TODO] Update a particle here
                     //  myParticle.update(time);
-
                     // Move to the center of the canvas
                     g.pushMatrix();
                     g.translate(w / 2, h / 2);
 
+					
                     // [TODO] Draw a particle here
 					g.stroke(hue,sat,bright);
 					g.fill(0,0,0,0);
@@ -85,13 +89,43 @@ define(["processing", "./particles/particleSystem", "./particles/particle", "./t
                     g.popMatrix();
 
                     // HW Functions
+					
+					$('#red').click(function(){
+						hue = 1;
+						sat = 1;
+						bright = 1;
+					});
+					
+					$('#blue').click(function(){
+						hue = .70;
+						sat = 1;
+						bright = 1;
+					});
+					
+					$('#green').click(function(){
+						hue = .3;
+						sat = 1;
+						bright = .5;
+					});
+					
+					$('#black').click(function(){
+						hue = .5;
+						sat = .5;
+						bright = 0;
+					});
+					
+					$('#white').click(function(){
+						hue = 1;
+						sat = 0;
+						bright = 1;
+					});
 
                     if (app.key === 9) {
-						console.log("--size");
+						//console.log("--size");
                         size--;
                     }
                     if (app.key === 0) {
-                        console.log("++size");
+                        //console.log("++size");
 						size++;
                     }
 
@@ -134,20 +168,17 @@ define(["processing", "./particles/particleSystem", "./particles/particle", "./t
                     case ' ':
                         app.paused = !app.paused;
                         break;
-                    case '1':
-                        // Do something when the user
-                        sound();
-                        app.key = 1;
+                    case '0':
+                        app.key = 0;
                         break;
 
-                    case 'W':
-                        // Do something when the user
-                        addParticles();
+                    case '9':
+                        app.key = 9;
                         break;
 
-                    case '2':
+                    case 'R':
                         // Do something
-                        app.key = 2;
+                        app.key = 1;
                         break;
                     case '3':
                         app.key = 3;

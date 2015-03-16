@@ -1,5 +1,5 @@
 define(["inheritance", "common"], function(_inheritance, common) {'use strict';
-    var Particle = Class.extend({
+    var Particle_1 = Class.extend({
         init : function() {
             
         },
@@ -21,5 +21,5 @@ define(["inheritance", "common"], function(_inheritance, common) {'use strict';
         },
     });
 
-    return Particle;
+    return Particle_1;
 });

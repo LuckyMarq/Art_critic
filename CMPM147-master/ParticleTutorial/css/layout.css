@@ -16,7 +16,7 @@
 	top: 0px;
 	left: 0px;
 	width: 800px;
-	height: 810px;
+	height: 870px;
 	margin: 20px auto;
 	border: solid rgba(255, 255, 255, .3) 5px;
 	box-shadow: 0px 7px 28px rgba(0, 0, 0, .7);
@@ -24,7 +24,7 @@
 
 #instructions{
 	width: 800px;
-	height: 100px;
+	height: 80px;
 	margin: 0 auto 0 auto;
 	border-bottom: 2px solid black;
 	background-color: lightgrey;
@@ -41,6 +41,23 @@
 	font-size: 18px;
 	text-align: center;
 	margin: auto;
+}
+
+#color_wrapper{
+	width: 800px;
+	height: 76px;
+	margin: 0 auto 0 auto;
+	background-color: white;
+	border-top: 2px solid black;
+}
+
+.color {
+	width: 100px;
+	height: 76px;
+	border-left: 2px solid black;
+	border-right: 2px solid black;
+	margin: 0 25px 0 30px;
+	float: left;
 }
 
 #critic{
